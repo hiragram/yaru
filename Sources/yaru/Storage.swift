@@ -9,7 +9,7 @@ import Foundation
 import Yams
 
 class Storage {
-    static let `default` = Storage.init(fileURL: URL.init(fileURLWithPath: "~/.yaru.yml"))
+    static let `default` = Storage.init(fileURL: FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent(".yaru.yml"))
     
     private let fileURL: URL
     
@@ -32,5 +32,9 @@ class Storage {
         let data = try encoder.encode(yaruList)
         
         try data.write(to: fileURL, atomically: true, encoding: .utf8)
+    }
+    
+    func initialize() {
+        FileManager.default.createFile(atPath: fileURL.absoluteString, contents: nil, attributes: [:])
     }
 }

@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "yaru",
+    platforms: [
+        .macOS(.v12),
+    ],
     products: [
         .executable(name: "yaru", targets: ["yaru"]),
     ],

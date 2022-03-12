@@ -18,6 +18,7 @@ case .`init`:
     guard try Storage.default.load() == nil else {
         throw YaruError.alreadyInitialized
     }
+    Storage.default.initialize()
     let emptyList = YaruList.init(items: [])
     try Storage.default.save(yaruList: emptyList)
 case .all:
