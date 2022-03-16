@@ -3,7 +3,11 @@ import Yams
 import ArgumentParser
 
 @main
-struct Yaru: ParsableCommand {}
+struct Yaru: ParsableCommand {
+    static var configuration = CommandConfiguration(
+        subcommands: [Init.self, Current.self, Push.self, Enqueue.self, Next.self, All.self]
+    )
+}
 
 extension Yaru {
     struct Init: ParsableCommand {
