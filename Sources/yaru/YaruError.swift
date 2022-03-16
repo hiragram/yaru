@@ -5,11 +5,11 @@
 //  Created by Yuya Hirayama on 2022/03/10.
 //
 
-import Foundation
+import ArgumentParser
 
-enum YaruError: Error {
-    case invalidSubcommand(String)
-    case argumentMissing
-    case uninitialized
-    case alreadyInitialized
+enum YaruError {
+    static let uninitialized = ValidationError("Uninitialized.")
+    static let alreadyInitialized = ValidationError("Already initialized.")
 }
+
+

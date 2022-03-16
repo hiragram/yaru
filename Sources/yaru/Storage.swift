@@ -17,9 +17,9 @@ class Storage {
         self.fileURL = fileURL
     }
     
-    func load() throws -> YaruList? {
+    func load() throws -> YaruList {
         guard let data = try? Data.init(contentsOf: fileURL) else {
-            return nil
+            throw YaruError.uninitialized
         }
         
         let decoder = YAMLDecoder.init()
