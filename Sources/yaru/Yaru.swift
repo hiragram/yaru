@@ -5,7 +5,7 @@ import ArgumentParser
 @main
 struct Yaru: ParsableCommand {
     static var configuration = CommandConfiguration(
-        subcommands: [Init.self, Current.self, Push.self, Enq.self, Next.self, All.self]
+        subcommands: [Init.self, Current.self, Insert.self, Add.self, Next.self, All.self]
     )
 }
 
@@ -29,7 +29,7 @@ extension Yaru {
         }
     }
     
-    struct Push: ParsableCommand {
+    struct Insert: ParsableCommand {
         @Argument
         var title: String
         
@@ -40,7 +40,7 @@ extension Yaru {
         }
     }
     
-    struct Enq: ParsableCommand {
+    struct Add: ParsableCommand {
         @Argument
         var title: String
         
