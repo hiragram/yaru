@@ -6,22 +6,22 @@ _The word "yaru(やる)" means "do" in Japanese._
 
 ## Usage
 
-To add a new task, simply run `yaru enq TASK`. The subcommand "enq" stands for "enqueue".
+To add a new task, simply run `yaru add TASK`.
 
 And then, run `yaru current` to show what to do right now.
 
 ```zsh
-$ yaru enq "debug ios app"
+$ yaru add "debug ios app"
 $ yaru current
 debug ios app
 ```
 
-When you have got interrupted by the other task, use a subcommand called "push". The new task is inserted at head of your task list.
+When you have got interrupted by the other task, use a subcommand called "insert". The new task is inserted at head of your task list.
 
 You can see all tasks in your list using subcommand called "all".
 
 ```zsh
-$ yaru push "code review #12345"
+$ yaru insert "code review #12345"
 $ yaru current
 code review #12345
 $ yaru all
