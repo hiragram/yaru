@@ -5,7 +5,7 @@ import ArgumentParser
 @main
 struct Yaru: ParsableCommand {
     static var configuration = CommandConfiguration(
-        subcommands: [Init.self, Current.self, Insert.self, Add.self, Next.self, All.self]
+        subcommands: [Init.self, Current.self, Insert.self, Add.self, Next.self, Later.self, All.self]
     )
 }
 
@@ -55,6 +55,15 @@ extension Yaru {
         mutating func run() throws {
             var storedList = try Storage.default.load()
             storedList.items = Array(storedList.items.dropFirst())
+            try Storage.default.save(yaruList: storedList)
+        }
+    }
+    
+    struct Later: ParsableCommand {
+        mutating func run() throws {
+            var storedList = try Storage.default.load()
+            let item = storedList.items.removeFirst()
+            storedList.items.append(item)
             try Storage.default.save(yaruList: storedList)
         }
     }
